@@ -18,3 +18,10 @@ Please implement delivery as an standalone service (just like the random joke se
 ![](Micropos.svg)
 
 Consider the advantage by doing so and write it down in your readme file.
+
+## Homework
+
+aw08重新实现了Delivery Service，使之成为一种独立服务，并且通过PosGateway将用户请求转发。
+我们使用一个inbound网关将送往`/deliver/{orderId}`的请求进行转发。
+
+实现后的源码请参考aw07仓库的aw08分支。

@@ -11,12 +11,11 @@ import org.springframework.stereotype.Component;
 public class HttpOutboundGateway {
     @Bean
     public IntegrationFlow outGate() {
-        return IntegrationFlows.from("sampleChannel")
-                .handle(Http.outboundGateway("https://api.chucknorris.io/jokes/random")
-                        .httpMethod(HttpMethod.GET)
-                        .expectedResponseType(Joke.class))
-                .<Joke, String>transform((j) -> j.getValue())
-                .handle(System.out::println)
-                .get();
+        return IntegrationFlows
+            .from("sampleChannel")
+            .handle(Http.outboundGateway("https://api.chucknorris.io/jokes/random")
+                .httpMethod(HttpMethod.GET)
+                .expectedResponseType(Joke.class))
+            .get();
     }
 }

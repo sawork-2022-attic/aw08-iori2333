@@ -11,9 +11,10 @@ public class HttpInboundGateway {
 
     @Bean
     public IntegrationFlow inGate() {
-        return IntegrationFlows.from(Http.inboundGateway("/check"))
-                .headerFilter("accept-encoding", false)
-                .channel("sampleChannel")
-                .get();
+        return IntegrationFlows
+            .from(Http.inboundGateway("/check"))
+            .headerFilter("accept-encoding", false)
+            .channel("sampleChannel")
+            .get();
     }
 }
